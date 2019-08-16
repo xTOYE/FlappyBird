@@ -5,25 +5,25 @@ using UnityEngine;
 namespace FlappyBird
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public classScrollObject : MonoBehaviour
+    public class ScrollObject : MonoBehaviour
     {
-        private Rigidbody2D rigid
+        private Rigidbody2D rigid;
 
         // Use this for initialization
         void Start()
         {
             rigid = GetComponent<Rigidbody2D>();
-            rigid.velocity = new Vector 2(GameManager.Instance.scrollSpeed, 0);
+            rigid.velocity = new Vector2 (GameManager.Instance.scrollSpeed, 0);
         }
 
         // Update is called once per frame
         void Upate()
         {
             // Check if game is over
-            if (GameManager.Intance.gameOver)
+            if (GameManager.Instance.gameOver)
             {
                 // Cancel velocity to stop scrolling
-                rigid.velocity = Vetor2.zero;
+                rigid.velocity = Vector2.zero;
             }
         }
     }
